@@ -76,14 +76,14 @@ public class Vala.SwitchSection : Block {
 			label.accept (visitor);
 		}
 
-		foreach (Statement st in get_statements ()) {
+		foreach (Statement st in this) {
 			st.accept (visitor);
 		}
 	}
 
 	public override void get_error_types (Collection<DataType> collection, SourceReference? source_reference = null) {
 		// use get_statements () instead of statement_list to not miss errors within StatementList objects
-		foreach (var stmt in get_statements ()) {
+		foreach (var stmt in this) {
 			stmt.get_error_types (collection, source_reference);
 		}
 	}
@@ -101,7 +101,7 @@ public class Vala.SwitchSection : Block {
 			label.check (context);
 		}
 
-		foreach (Statement st in get_statements ()) {
+		foreach (Statement st in this) {
 			st.check (context);
 		}
 

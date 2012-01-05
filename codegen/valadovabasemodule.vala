@@ -782,7 +782,7 @@ public abstract class Vala.DovaBaseModule : CodeGenerator {
 			cfile.add_function (unref_fun);
 		}
 
-		foreach (Statement stmt in b.get_statements ()) {
+		foreach (Statement stmt in b) {
 			stmt.emit (this);
 		}
 
